@@ -1,5 +1,6 @@
 # MikScrollingBattleText for wow 3.3.5
-*There was an issue with the original addon displaying the incorrect amount of items looted versus what was actually in yout bags.
+*I am not the original author of the addon
+There was an issue with the original addon displaying the incorrect amount of items looted versus what was actually in yout bags.
 Fix: in MSBTLoot.lua, MSBT now waits 0.3 seconds for the bags to update, then shows the real bag count. It's correct whichever comes first, the bag update or the message. The popup appears a fraction of a second later, which should be hard to notice.*
 
 

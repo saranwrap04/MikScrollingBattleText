@@ -1549,21 +1549,12 @@ local masterProfile = {
 -- Dynamically loads the and displays the options.
 -- ****************************************************************************
 local function ShowOptions()
- -- Load the options module if it's not already loaded.
- local optionsName = "MSBTOptions"
- if (not IsAddOnLoaded(optionsName)) then
-  local loaded, failureReason = LoadAddOn(optionsName)
-  
-  -- Display an error message indicating why the module wasn't loaded if it
-  -- didn't load properly.
-  if (not loaded) then
-   local failureMessage = _G["ADDON_" .. failureReason] or failureReason or ""
-   Print(string_format(ADDON_LOAD_FAILED, optionsName, failureMessage))
-  end
+ -- The options are part of this addon (Options folder), loaded with it.
+ if (MSBTOptions and MSBTOptions.Main) then
+  MSBTOptions.Main.ShowMainFrame()
+ else
+  Print(string_format(ADDON_LOAD_FAILED, "MikScrollingBattleText\\Options", ""))
  end
-
- -- Display the main frame if the options module is loaded.
- if (IsAddOnLoaded(optionsName)) then MSBTOptions.Main.ShowMainFrame() end
 end
 
 -- ****************************************************************************

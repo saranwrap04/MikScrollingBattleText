@@ -131,7 +131,7 @@ local function HandleItems(parserEvent)
  local qualityColor = ITEM_QUALITY_COLORS[itemQuality]
  if (qualityPatterns[itemQuality]) then itemName = string_format(qualityPatterns[itemQuality], itemName) end
 
- local numLooted = parserEvent.amount or 1
+ local numLooted = tonumber(parserEvent.amount) or 1 -- the parser gives the amount as text ("5")
 
  -- Fix: on this server the item is often already in the bags when the
  -- "You receive loot" message arrives, so "bag count + amount looted" showed
